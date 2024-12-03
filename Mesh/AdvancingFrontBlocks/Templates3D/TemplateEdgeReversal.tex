@@ -1,0 +1,77 @@
+\documentclass[tikz]{standalone}
+
+\definecolor{n0}{HTML}{785EF0}
+\definecolor{End}{HTML}{DC267F}
+\definecolor{Corner}{HTML}{FFB000}
+\definecolor{NewHex}{HTML}{648FFF}
+\definecolor{Reversal}{HTML}{FE6100}
+
+\begin{document}
+\begin{tikzpicture}[scale=4, x={(0.5cm,-0.2cm)}, y={(0.4cm,0.2cm)}, z={(0.0cm,0.6cm)}]
+
+  %%%%%%%%%% Points pour travailler %%%%%%%%%%
+
+ \coordinate (0) at (0,0,0);
+ \coordinate (1) at (0,1,0);
+ \coordinate (2) at (1,1,0);
+ \coordinate (3) at (1,0,0);
+ \coordinate (4) at (0,0,1);
+ \coordinate (5) at (0,1,1);
+ \coordinate (6) at (1,1,1);
+ \coordinate (7) at (1,0,1);
+ \coordinate (8) at (0,0,-1);
+ \coordinate (9) at (0,1,-1);
+ \coordinate (10) at (1,1,-1);
+ \coordinate (11) at (1,0,-1);
+ \coordinate (12) at (0,-1,0);
+ \coordinate (13) at (0,2,0);
+ \coordinate (14) at (-1,-1,0.2);
+ \coordinate (15) at (-1,0,0.2);
+ \coordinate (16) at (-1,1,0.2);
+ \coordinate (17) at (-1,2,0.2);
+ \coordinate (18) at (-1,-1,-0.2);
+ \coordinate (19) at (-1,0,-0.2);
+ \coordinate (20) at (-1,1,-0.2);
+ \coordinate (21) at (-1,2,-0.2);
+
+ 
+ %%%%%%%%%% Layer blue color %%%%%%%%%%
+ \fill [color=blue!40!white] (12) -- (18) -- (21) -- (13) -- cycle ;
+ \fill [color=blue!20!white] (12) -- (14) -- (17) -- (13) -- cycle ;
+ 
+ %%%%%%%%%%%%%%%% Precedant layer %%%%%%%%%%%%%%%%%%%
+ \draw [line width=1] (12) -- (13) ;
+ \draw [line width=1] (14) -- (17) ;
+ \draw [line width=1] (18) -- (12) -- (14) ;
+ \draw [line width=1] (0) -- (15) ;
+ \draw [line width=1] (1) -- (16) ;
+ \draw [line width=1] (13) -- (17) ;
+ 
+ \draw [dashed, line width=1,opacity=0.5] (18) -- (21) -- (13) ;
+ \draw [dashed, line width=1,opacity=0.5] (0) -- (19) ;
+ \draw [dashed, line width=1,opacity=0.5] (1) -- (20) ;
+ 
+ 
+ %%%%%%%%%%% Feature edges %%%%%%%%%%%
+ \draw [line width=2, color=Reversal] (0) -- (1) ;
+ 
+ 
+ %%%%%%%%%%% The HEXAS created %%%%%%%%%%% 
+ \draw [line width=2, color=NewHex] (4) -- (5) -- (6) -- (7) -- (4) ;
+ \draw [line width=2, color=NewHex] (0) -- (3) -- (2) ;
+ \draw [line width=2, color=NewHex] (8) -- (11) -- (10) ;
+ \draw [line width=2, color=NewHex] (4) -- (8) ;
+ \draw [line width=2, color=NewHex] (7) -- (11) ;
+ \draw [line width=2, color=NewHex] (6) -- (10) ;
+ \draw [dashed, line width=2, color=NewHex] (8) -- (9) -- (10) ;
+ \draw [dashed, line width=2, color=NewHex] (1) -- (2) ;
+ \draw [dashed, line width=2, color=NewHex] (5) -- (9) ;
+
+  %%%%%%%%%%% HEXA NODES %%%%%%%%%%%
+ \foreach \i in {0,...,11}
+ {
+   \draw (\i) node[circle, fill=black, inner sep = 2 pt] {};
+ }
+
+\end{tikzpicture}
+\end{document}
